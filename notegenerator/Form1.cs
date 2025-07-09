@@ -1,5 +1,6 @@
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
+using Microsoft.Data.Sqlite;
 
 
 
@@ -12,6 +13,8 @@ namespace notegenerator
         public Form1()
         {
             InitializeComponent();
+
+            LoadComboBoxData();
 
             DataAcess.InitializeDatabase();
             papPanel.Visible = false;
@@ -35,7 +38,7 @@ namespace notegenerator
             string performed = studyPerformed?.SelectedItem?.ToString() ?? "Not selected";
             string acq = AcqNumBox.Text;
             string referring = refMDtxtBox.Text;
-            string tech = sleepTechBox.Text;
+            string tech = techComboBox.Text;
             // frequency plus symptom for narrative
             // checkbox for sleep issues from pt form
             string cpapMask = string.Empty;
@@ -165,14 +168,48 @@ namespace notegenerator
             MessageBox.Show("Split button works", "Split night study");
         }
 
-        private void ptNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void initalizeDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DataAcess.InitializeDatabase();
+        }
+
+        private void addTechToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddTech addTech = new AddTech();
+            addTech.ShowDialog();
+        }
+        private void LoadComboBoxData()
+        {
+            string connectionString = "Data Source=appdata.db"; // adjust path as needed
+
+            using (var connection = new SqliteConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    var command = connection.CreateCommand();
+                    command.CommandText = "SELECT name FROM techs";
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string name = reader.GetString(0);
+                            techComboBox.Items.Add(name);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading data: " + ex.Message);
+                }
+            }
+        }
+
+        private void addMDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddMd addMd = new AddMd();
+            addMd.ShowDialog();
         }
     }
 }

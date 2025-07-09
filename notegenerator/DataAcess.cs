@@ -43,5 +43,77 @@ namespace notegenerator
             }
 
         }
+
+        public static List<string> GetTechs()
+        {
+            var techs = new List<string>();
+            using (var connection = new SqliteConnection($"Data Source={dbPath}"))
+            {
+                connection.Open();
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = "SELECT name FROM techs";
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            techs.Add(reader.GetString(0));
+                        }
+                    }
+                }
+            }
+            return techs;
+        }
+
+        public static List<string> GetOrderingMds()
+        {
+            var orderingMds = new List<string>();
+            using (var connection = new SqliteConnection($"Data Source={dbPath}"))
+            {
+                connection.Open();
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = "SELECT name FROM ordering_mds";
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            orderingMds.Add(reader.GetString(0));
+                        }
+                    }
+                }
+            }
+            return orderingMds;
+        }
+
+        public static void AddTech(string techName)
+        {
+            using (var connection = new SqliteConnection($"Data Source={dbPath}"))
+            {
+                connection.Open();
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = "INSERT INTO techs (name) VALUES (@name)";
+                    command.Parameters.AddWithValue("@name", techName);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public static void AddOrderingMd(string mdName)
+        {
+            using (var connection = new SqliteConnection($"Data Source={dbPath}"))
+            {
+                connection.Open();
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = "INSERT INTO ordering_mds (name) VALUES (@name)";
+                    command.Parameters.AddWithValue("@name", mdName);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        
     }
 }
