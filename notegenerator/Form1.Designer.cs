@@ -44,25 +44,32 @@
             AcquisitionNum = new TextBox();
             label8 = new Label();
             label9 = new Label();
-            locationTextBox = new ComboBox();
+            locationCombo = new ComboBox();
             sleepTech = new TextBox();
             generateReportBtn = new Button();
-            groupBox1 = new GroupBox();
-            checkBox6 = new CheckBox();
-            checkBox5 = new CheckBox();
-            checkBox4 = new CheckBox();
-            checkBox3 = new CheckBox();
-            checkBox2 = new CheckBox();
-            checkBox1 = new CheckBox();
-            label10 = new Label();
             generateReportSplitBtn = new Button();
-            groupBox1.SuspendLayout();
+            label11 = new Label();
+            ptIdBox = new TextBox();
+            label12 = new Label();
+            maskComboBox = new ComboBox();
+            label13 = new Label();
+            label14 = new Label();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
+            label15 = new Label();
+            roomCombo = new ComboBox();
+            commentBox = new TextBox();
+            label16 = new Label();
+            textBox3 = new TextBox();
+            label17 = new Label();
+            label18 = new Label();
+            comboBox1 = new ComboBox();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(26, 160);
+            label1.Location = new Point(58, 27);
             label1.Name = "label1";
             label1.Size = new Size(160, 32);
             label1.TabIndex = 0;
@@ -70,15 +77,17 @@
             // 
             // dateOfStudy
             // 
-            dateOfStudy.Location = new Point(224, 153);
+            dateOfStudy.Format = DateTimePickerFormat.Short;
+            dateOfStudy.Location = new Point(258, 27);
             dateOfStudy.Name = "dateOfStudy";
             dateOfStudy.Size = new Size(400, 39);
             dateOfStudy.TabIndex = 2;
+            dateOfStudy.ValueChanged += dateOfStudy_ValueChanged;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(28, 212);
+            label2.Location = new Point(45, 277);
             label2.Name = "label2";
             label2.Size = new Size(158, 32);
             label2.TabIndex = 2;
@@ -86,24 +95,24 @@
             // 
             // ptNameTextBox
             // 
-            ptNameTextBox.Location = new Point(223, 205);
+            ptNameTextBox.Location = new Point(243, 286);
             ptNameTextBox.Name = "ptNameTextBox";
-            ptNameTextBox.Size = new Size(200, 39);
+            ptNameTextBox.Size = new Size(398, 39);
             ptNameTextBox.TabIndex = 3;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(28, 322);
+            label3.Location = new Point(703, 347);
             label3.Name = "label3";
-            label3.Size = new Size(169, 32);
+            label3.Size = new Size(151, 32);
             label3.TabIndex = 4;
-            label3.Text = "Study Ordered";
+            label3.Text = "Test Ordered";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(28, 265);
+            label4.Location = new Point(44, 338);
             label4.Name = "label4";
             label4.Size = new Size(143, 32);
             label4.TabIndex = 5;
@@ -111,7 +120,7 @@
             // 
             // ptDOB
             // 
-            ptDOB.Location = new Point(224, 258);
+            ptDOB.Location = new Point(243, 341);
             ptDOB.Name = "ptDOB";
             ptDOB.Size = new Size(400, 39);
             ptDOB.TabIndex = 4;
@@ -120,7 +129,7 @@
             // 
             studyOrdered.FormattingEnabled = true;
             studyOrdered.Items.AddRange(new object[] { "NPSG", "SPLIT NIGHT ", "TITRATION" });
-            studyOrdered.Location = new Point(226, 319);
+            studyOrdered.Location = new Point(901, 347);
             studyOrdered.Name = "studyOrdered";
             studyOrdered.Size = new Size(242, 40);
             studyOrdered.TabIndex = 5;
@@ -128,17 +137,17 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(28, 385);
+            label5.Location = new Point(702, 410);
             label5.Name = "label5";
-            label5.Size = new Size(192, 32);
+            label5.Size = new Size(180, 32);
             label5.TabIndex = 8;
-            label5.Text = "Study Performed";
+            label5.Text = "Test Conducted";
             // 
             // studyPerformed
             // 
             studyPerformed.FormattingEnabled = true;
             studyPerformed.Items.AddRange(new object[] { "NPSG", "SPLIT NIGHT ", "TITRATION" });
-            studyPerformed.Location = new Point(226, 377);
+            studyPerformed.Location = new Point(901, 406);
             studyPerformed.Name = "studyPerformed";
             studyPerformed.Size = new Size(242, 40);
             studyPerformed.TabIndex = 6;
@@ -146,15 +155,15 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(31, 495);
+            label6.Location = new Point(705, 289);
             label6.Name = "label6";
-            label6.Size = new Size(94, 32);
+            label6.Size = new Size(155, 32);
             label6.TabIndex = 10;
-            label6.Text = "Ref MD";
+            label6.Text = "Ordering MD";
             // 
             // refMDtxtBox
             // 
-            refMDtxtBox.Location = new Point(226, 495);
+            refMDtxtBox.Location = new Point(901, 292);
             refMDtxtBox.Name = "refMDtxtBox";
             refMDtxtBox.Size = new Size(200, 39);
             refMDtxtBox.TabIndex = 8;
@@ -162,7 +171,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(28, 436);
+            label7.Location = new Point(706, 29);
             label7.Name = "label7";
             label7.Size = new Size(153, 32);
             label7.TabIndex = 12;
@@ -170,7 +179,7 @@
             // 
             // AcquisitionNum
             // 
-            AcquisitionNum.Location = new Point(226, 436);
+            AcquisitionNum.Location = new Point(899, 24);
             AcquisitionNum.Name = "AcquisitionNum";
             AcquisitionNum.Size = new Size(200, 39);
             AcquisitionNum.TabIndex = 7;
@@ -178,40 +187,40 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(31, 565);
+            label8.Location = new Point(706, 82);
             label8.Name = "label8";
-            label8.Size = new Size(129, 32);
+            label8.Size = new Size(177, 32);
             label8.TabIndex = 14;
-            label8.Text = "Sleep Tech";
+            label8.Text = "Recording Tech";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(31, 103);
+            label9.Location = new Point(59, 79);
             label9.Name = "label9";
             label9.Size = new Size(104, 32);
             label9.TabIndex = 15;
             label9.Text = "Location";
             // 
-            // locationTextBox
+            // locationCombo
             // 
-            locationTextBox.FormattingEnabled = true;
-            locationTextBox.Items.AddRange(new object[] { "Long Beach", "Torrance" });
-            locationTextBox.Location = new Point(224, 100);
-            locationTextBox.Name = "locationTextBox";
-            locationTextBox.Size = new Size(242, 40);
-            locationTextBox.TabIndex = 1;
+            locationCombo.FormattingEnabled = true;
+            locationCombo.Items.AddRange(new object[] { "Long Beach", "Torrance" });
+            locationCombo.Location = new Point(258, 79);
+            locationCombo.Name = "locationCombo";
+            locationCombo.Size = new Size(242, 40);
+            locationCombo.TabIndex = 1;
             // 
             // sleepTech
             // 
-            sleepTech.Location = new Point(227, 565);
+            sleepTech.Location = new Point(899, 79);
             sleepTech.Name = "sleepTech";
             sleepTech.Size = new Size(200, 39);
             sleepTech.TabIndex = 9;
             // 
             // generateReportBtn
             // 
-            generateReportBtn.Location = new Point(227, 672);
+            generateReportBtn.Location = new Point(471, 1163);
             generateReportBtn.Name = "generateReportBtn";
             generateReportBtn.Size = new Size(208, 51);
             generateReportBtn.TabIndex = 19;
@@ -219,93 +228,9 @@
             generateReportBtn.UseVisualStyleBackColor = true;
             generateReportBtn.Click += generateReportBtn_Click;
             // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(checkBox6);
-            groupBox1.Controls.Add(checkBox5);
-            groupBox1.Controls.Add(checkBox4);
-            groupBox1.Controls.Add(checkBox3);
-            groupBox1.Controls.Add(checkBox2);
-            groupBox1.Controls.Add(checkBox1);
-            groupBox1.Location = new Point(681, 319);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(400, 200);
-            groupBox1.TabIndex = 20;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Symptoms";
-            // 
-            // checkBox6
-            // 
-            checkBox6.AutoSize = true;
-            checkBox6.Location = new Point(200, 124);
-            checkBox6.Name = "checkBox6";
-            checkBox6.Size = new Size(159, 36);
-            checkBox6.TabIndex = 5;
-            checkBox6.Text = "checkBox6";
-            checkBox6.UseVisualStyleBackColor = true;
-            // 
-            // checkBox5
-            // 
-            checkBox5.AutoSize = true;
-            checkBox5.Location = new Point(200, 82);
-            checkBox5.Name = "checkBox5";
-            checkBox5.Size = new Size(159, 36);
-            checkBox5.TabIndex = 4;
-            checkBox5.Text = "checkBox5";
-            checkBox5.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            checkBox4.AutoSize = true;
-            checkBox4.Location = new Point(200, 38);
-            checkBox4.Name = "checkBox4";
-            checkBox4.Size = new Size(159, 36);
-            checkBox4.TabIndex = 3;
-            checkBox4.Text = "checkBox4";
-            checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            checkBox3.AutoSize = true;
-            checkBox3.Location = new Point(35, 124);
-            checkBox3.Name = "checkBox3";
-            checkBox3.Size = new Size(159, 36);
-            checkBox3.TabIndex = 2;
-            checkBox3.Text = "checkBox3";
-            checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(35, 82);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(159, 36);
-            checkBox2.TabIndex = 1;
-            checkBox2.Text = "checkBox2";
-            checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(35, 38);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(159, 36);
-            checkBox1.TabIndex = 0;
-            checkBox1.Text = "checkBox1";
-            checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(687, 268);
-            label10.Name = "label10";
-            label10.Size = new Size(224, 32);
-            label10.TabIndex = 21;
-            label10.Text = "Check all that apply";
-            // 
             // generateReportSplitBtn
             // 
-            generateReportSplitBtn.Location = new Point(227, 672);
+            generateReportSplitBtn.Location = new Point(471, 1163);
             generateReportSplitBtn.Name = "generateReportSplitBtn";
             generateReportSplitBtn.Size = new Size(208, 51);
             generateReportSplitBtn.TabIndex = 22;
@@ -313,17 +238,169 @@
             generateReportSplitBtn.UseVisualStyleBackColor = true;
             generateReportSplitBtn.Click += generateReportSplitBtn_Click;
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(708, 140);
+            label11.Name = "label11";
+            label11.Size = new Size(117, 32);
+            label11.TabIndex = 23;
+            label11.Text = "Patient ID";
+            // 
+            // ptIdBox
+            // 
+            ptIdBox.Location = new Point(901, 140);
+            ptIdBox.Name = "ptIdBox";
+            ptIdBox.ReadOnly = true;
+            ptIdBox.Size = new Size(200, 39);
+            ptIdBox.TabIndex = 24;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(703, 468);
+            label12.Name = "label12";
+            label12.Size = new Size(157, 32);
+            label12.TabIndex = 25;
+            label12.Text = "Masked Used";
+            // 
+            // maskComboBox
+            // 
+            maskComboBox.FormattingEnabled = true;
+            maskComboBox.Location = new Point(901, 465);
+            maskComboBox.Name = "maskComboBox";
+            maskComboBox.Size = new Size(242, 40);
+            maskComboBox.TabIndex = 26;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(45, 396);
+            label13.Name = "label13";
+            label13.Size = new Size(86, 32);
+            label13.TabIndex = 27;
+            label13.Text = "Height";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(45, 451);
+            label14.Name = "label14";
+            label14.Size = new Size(90, 32);
+            label14.TabIndex = 28;
+            label14.Text = "Weight";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(243, 396);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(200, 39);
+            textBox1.TabIndex = 29;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(243, 451);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(200, 39);
+            textBox2.TabIndex = 30;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(63, 137);
+            label15.Name = "label15";
+            label15.Size = new Size(83, 32);
+            label15.TabIndex = 31;
+            label15.Text = "Room ";
+            // 
+            // roomCombo
+            // 
+            roomCombo.FormattingEnabled = true;
+            roomCombo.Items.AddRange(new object[] { "RM1", "RM2", "RM3" });
+            roomCombo.Location = new Point(258, 137);
+            roomCombo.Name = "roomCombo";
+            roomCombo.Size = new Size(242, 40);
+            roomCombo.TabIndex = 32;
+            roomCombo.SelectedIndexChanged += roomCombo_SelectedIndexChanged;
+            // 
+            // commentBox
+            // 
+            commentBox.Location = new Point(63, 913);
+            commentBox.Multiline = true;
+            commentBox.Name = "commentBox";
+            commentBox.Size = new Size(1058, 160);
+            commentBox.TabIndex = 33;
+            commentBox.Text = "add comments";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(44, 507);
+            label16.Name = "label16";
+            label16.Size = new Size(101, 32);
+            label16.TabIndex = 34;
+            label16.Text = "Epworth";
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(243, 507);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(200, 39);
+            textBox3.TabIndex = 35;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label17.Location = new Point(449, 509);
+            label17.Name = "label17";
+            label17.Size = new Size(61, 37);
+            label17.TabIndex = 36;
+            label17.Text = "/24";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(705, 527);
+            label18.Name = "label18";
+            label18.Size = new Size(120, 32);
+            label18.TabIndex = 37;
+            label18.Text = "Mask Size";
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "XS", "Small", "Medium", "Large", "XL" });
+            comboBox1.Location = new Point(901, 527);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(242, 40);
+            comboBox1.TabIndex = 38;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1181, 800);
+            ClientSize = new Size(1181, 1230);
+            Controls.Add(comboBox1);
+            Controls.Add(label18);
+            Controls.Add(label17);
+            Controls.Add(textBox3);
+            Controls.Add(label16);
+            Controls.Add(commentBox);
+            Controls.Add(roomCombo);
+            Controls.Add(label15);
+            Controls.Add(textBox2);
+            Controls.Add(textBox1);
+            Controls.Add(label14);
+            Controls.Add(label13);
+            Controls.Add(maskComboBox);
+            Controls.Add(label12);
+            Controls.Add(ptIdBox);
+            Controls.Add(label11);
             Controls.Add(generateReportSplitBtn);
-            Controls.Add(label10);
-            Controls.Add(groupBox1);
             Controls.Add(generateReportBtn);
             Controls.Add(sleepTech);
-            Controls.Add(locationTextBox);
+            Controls.Add(locationCombo);
             Controls.Add(label9);
             Controls.Add(label8);
             Controls.Add(AcquisitionNum);
@@ -342,8 +419,6 @@
             Controls.Add(label1);
             Name = "Form1";
             Text = "Generate Report ";
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -366,17 +441,25 @@
         private TextBox AcquisitionNum;
         private Label label8;
         private Label label9;
-        private ComboBox locationTextBox;
+        private ComboBox locationCombo;
         private TextBox sleepTech;
         private Button generateReportBtn;
-        private GroupBox groupBox1;
-        private CheckBox checkBox6;
-        private CheckBox checkBox5;
-        private CheckBox checkBox4;
-        private CheckBox checkBox3;
-        private CheckBox checkBox2;
-        private CheckBox checkBox1;
-        private Label label10;
         private Button generateReportSplitBtn;
+        private Label label11;
+        private TextBox ptIdBox;
+        private Label label12;
+        private ComboBox maskComboBox;
+        private Label label13;
+        private Label label14;
+        private TextBox textBox1;
+        private TextBox textBox2;
+        private Label label15;
+        private ComboBox roomCombo;
+        private TextBox commentBox;
+        private Label label16;
+        private TextBox textBox3;
+        private Label label17;
+        private Label label18;
+        private ComboBox comboBox1;
     }
 }

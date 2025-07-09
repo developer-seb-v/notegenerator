@@ -5,23 +5,22 @@ namespace notegenerator
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
-            if (studyPerformed.SelectedItem.ToString() != null && studyPerformed.SelectedItem.ToString() == "NPSG")
-            {
-                generateReportSplitBtn.Enabled = false;
-            }
+            dateOfStudy.Format = DateTimePickerFormat.Custom;
+            dateOfStudy.CustomFormat = "MM/dd/yyyy";
 
-            else
-            {
+            DateTime DOS = dateOfStudy.Value.ToLocalTime();
+            string room = roomCombo.Text;
+            ptIdBox.Text = DOS.ToString("MMddyyyy") + "-" + room;
 
-            }
         }
 
         private void generateReportBtn_Click(object sender, EventArgs e)
         {
-            string location = locationTextBox.Text;
+            string location = locationCombo.Text;
             DateTime DOS = dateOfStudy.Value.ToLocalTime();
             string ptName = ptNameTextBox.Text;
             string DOB = ptDOB.Value.ToLocalTime().ToString();
@@ -92,6 +91,18 @@ namespace notegenerator
         {
 
             MessageBox.Show("Split button works", "Split night study");
+        }
+
+        private void roomCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+            ptIdBox.Text = dateOfStudy.Value.ToString("MMddyyyy") + "-" + roomCombo.Text;
+        }
+
+        private void dateOfStudy_ValueChanged(object sender, EventArgs e)
+        {
+            ptIdBox.Text = dateOfStudy.Value.ToString("MMddyyyy") + "-" + roomCombo.Text;
         }
     }
 }
