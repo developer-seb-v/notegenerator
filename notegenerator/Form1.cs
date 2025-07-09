@@ -12,6 +12,9 @@ namespace notegenerator
         public Form1()
         {
             InitializeComponent();
+
+            DataAcess.InitializeDatabase();
+            papPanel.Visible = false;
             dateOfStudy.Format = DateTimePickerFormat.Custom;
             dateOfStudy.CustomFormat = "MM/dd/yyyy";
 
@@ -35,11 +38,11 @@ namespace notegenerator
             string tech = sleepTechBox.Text;
             // frequency plus symptom for narrative
             // checkbox for sleep issues from pt form
-            string papMode = string.Empty;
             string cpapMask = string.Empty;
             string startPressure = string.Empty;
             string endPressure = string.Empty;
-            string baseline = $"{ptName} is in for a sleep study. During the study, the patient had";
+            string comments = commentBox.Text;
+            string baseline = $"{ptName} is in for a {ordered} study. {comments}";
 
 
             string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "UserInfo_OpenXml.docx");
@@ -58,15 +61,16 @@ namespace notegenerator
                         CreateParagraph($"Patient Id: {ptIdBox.Text}", bold: false, fontSize: "18"),
                         CreateParagraph($"Study Ordered: {ordered}", bold: false, fontSize: "18"),
                         CreateParagraph($"Study Performed: {performed}", bold: false, fontSize: "18"),
-                        CreateParagraph($"Mask Used: {maskComboBox.SelectedValue}", bold: false, fontSize: "18"),
-                        CreateParagraph($"Mask Size: {maskSizeBox.SelectedValue}", bold: false, fontSize: "18"),
+                        // CreateParagraph($"Mask Used: {maskComboBox.SelectedValue}", bold: false, fontSize: "18"),
+                        // CreateParagraph($"Mask Size: {maskSizeBox.SelectedValue}", bold: false, fontSize: "18"),
                         CreateParagraph($"Acquisition Num: {acq}", bold: false, fontSize: "18"),
                         CreateParagraph($"Ordering MD: {referring}", bold: false, fontSize: "18"),
                         CreateParagraph($"Sleep Tech: {tech}", bold: false, fontSize: "18"),
                         CreateParagraph($"Location: {location} ", bold: false, fontSize: "18"),
                         CreateParagraph($"Height: {heightBox.Text} ", bold: false, fontSize: "18"),
                         CreateParagraph($"Weight: {weightBox.Text} ", bold: false, fontSize: "18"),
-                        CreateParagraph($"Epworth: {epworthBox.Text} ", bold: false, fontSize: "18")
+                        CreateParagraph($"Epworth: {epworthBox.Text} ", bold: false, fontSize: "18"),
+                        CreateParagraph($"{Environment.NewLine} Summary: The patient is in for a {ordered}. {comments}")
 
                         );
 
@@ -77,6 +81,14 @@ namespace notegenerator
             }
         }
 
+        // TODO: create narratives for split night and titration studies
+        // TODO: add logo to document
+        // TODO: Use embedded Sqlite DB for data persistence?
+        // TODO: Form validation
+        // TODO: Get symptoms from patient paperwork
+        // TODO: Add cardiac report fields
+        // TODO: PLMs fields???
+        // TODO: Pt medical history... medications?
 
         private Paragraph CreateParagraph(string text, bool bold = false, bool italic = false, string fontSize = "24", string spacingBefore = "120")
         {
@@ -125,16 +137,19 @@ namespace notegenerator
                     generateReportBtn.Visible = false;
                     titrationBtn.Visible = false;
                     splitBtn.Visible = true;
+                    papPanel.Visible = true;
                     break;
                 case "TITRATION":
                     generateReportBtn.Visible = false;
                     titrationBtn.Visible = true;
                     splitBtn.Visible = false;
+                    papPanel.Visible = true;
                     break;
                 case "NPSG":
                     generateReportBtn.Visible = true;
                     titrationBtn.Visible = false;
                     splitBtn.Visible = false;
+                    papPanel.Visible = false;
                     break;
             }
         }
@@ -142,6 +157,7 @@ namespace notegenerator
         private void titrationBtn_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Titration button works", "Titration study");
+
         }
 
         private void splitBtn_Click(object sender, EventArgs e)
@@ -152,6 +168,11 @@ namespace notegenerator
         private void ptNameTextBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void initalizeDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataAcess.InitializeDatabase();
         }
     }
 }

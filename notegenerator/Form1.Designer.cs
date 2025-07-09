@@ -67,12 +67,18 @@
             titrationBtn = new Button();
             label10 = new Label();
             bmiBox = new TextBox();
+            label19 = new Label();
+            label20 = new Label();
+            startPresBox = new TextBox();
+            finalPresBox = new TextBox();
+            papPanel = new Panel();
+            papPanel.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(58, 27);
+            label1.Location = new Point(54, 67);
             label1.Name = "label1";
             label1.Size = new Size(160, 32);
             label1.TabIndex = 0;
@@ -81,7 +87,7 @@
             // dateOfStudy
             // 
             dateOfStudy.Format = DateTimePickerFormat.Short;
-            dateOfStudy.Location = new Point(258, 27);
+            dateOfStudy.Location = new Point(254, 67);
             dateOfStudy.Name = "dateOfStudy";
             dateOfStudy.Size = new Size(400, 39);
             dateOfStudy.TabIndex = 1;
@@ -90,7 +96,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(63, 238);
+            label2.Location = new Point(59, 278);
             label2.Name = "label2";
             label2.Size = new Size(158, 32);
             label2.TabIndex = 2;
@@ -98,7 +104,7 @@
             // 
             // ptNameTextBox
             // 
-            ptNameTextBox.Location = new Point(261, 247);
+            ptNameTextBox.Location = new Point(257, 287);
             ptNameTextBox.Name = "ptNameTextBox";
             ptNameTextBox.Size = new Size(398, 39);
             ptNameTextBox.TabIndex = 7;
@@ -107,7 +113,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(675, 302);
+            label3.Location = new Point(671, 342);
             label3.Name = "label3";
             label3.Size = new Size(151, 32);
             label3.TabIndex = 4;
@@ -116,7 +122,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(62, 299);
+            label4.Location = new Point(58, 339);
             label4.Name = "label4";
             label4.Size = new Size(143, 32);
             label4.TabIndex = 5;
@@ -124,7 +130,7 @@
             // 
             // ptDOB
             // 
-            ptDOB.Location = new Point(261, 302);
+            ptDOB.Location = new Point(257, 342);
             ptDOB.Name = "ptDOB";
             ptDOB.Size = new Size(400, 39);
             ptDOB.TabIndex = 8;
@@ -133,7 +139,7 @@
             // 
             studyOrdered.FormattingEnabled = true;
             studyOrdered.Items.AddRange(new object[] { "NPSG", "SPLIT ", "TITRATION" });
-            studyOrdered.Location = new Point(873, 302);
+            studyOrdered.Location = new Point(869, 342);
             studyOrdered.Name = "studyOrdered";
             studyOrdered.Size = new Size(325, 40);
             studyOrdered.TabIndex = 13;
@@ -141,7 +147,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(674, 365);
+            label5.Location = new Point(670, 405);
             label5.Name = "label5";
             label5.Size = new Size(180, 32);
             label5.TabIndex = 8;
@@ -151,7 +157,7 @@
             // 
             studyPerformed.FormattingEnabled = true;
             studyPerformed.Items.AddRange(new object[] { "NPSG", "SPLIT", "TITRATION" });
-            studyPerformed.Location = new Point(873, 361);
+            studyPerformed.Location = new Point(869, 401);
             studyPerformed.Name = "studyPerformed";
             studyPerformed.Size = new Size(325, 40);
             studyPerformed.TabIndex = 14;
@@ -160,7 +166,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(677, 244);
+            label6.Location = new Point(673, 284);
             label6.Name = "label6";
             label6.Size = new Size(155, 32);
             label6.TabIndex = 10;
@@ -168,7 +174,7 @@
             // 
             // refMDtxtBox
             // 
-            refMDtxtBox.Location = new Point(873, 247);
+            refMDtxtBox.Location = new Point(869, 287);
             refMDtxtBox.Name = "refMDtxtBox";
             refMDtxtBox.Size = new Size(325, 39);
             refMDtxtBox.TabIndex = 12;
@@ -176,7 +182,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(706, 29);
+            label7.Location = new Point(702, 69);
             label7.Name = "label7";
             label7.Size = new Size(153, 32);
             label7.TabIndex = 12;
@@ -184,7 +190,7 @@
             // 
             // AcqNumBox
             // 
-            AcqNumBox.Location = new Point(899, 24);
+            AcqNumBox.Location = new Point(895, 64);
             AcqNumBox.Name = "AcqNumBox";
             AcqNumBox.Size = new Size(200, 39);
             AcqNumBox.TabIndex = 4;
@@ -192,7 +198,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(706, 82);
+            label8.Location = new Point(702, 122);
             label8.Name = "label8";
             label8.Size = new Size(177, 32);
             label8.TabIndex = 14;
@@ -201,7 +207,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(59, 79);
+            label9.Location = new Point(55, 119);
             label9.Name = "label9";
             label9.Size = new Size(104, 32);
             label9.TabIndex = 15;
@@ -211,21 +217,21 @@
             // 
             locationCombo.FormattingEnabled = true;
             locationCombo.Items.AddRange(new object[] { "Long Beach", "Torrance" });
-            locationCombo.Location = new Point(258, 79);
+            locationCombo.Location = new Point(254, 119);
             locationCombo.Name = "locationCombo";
             locationCombo.Size = new Size(242, 40);
             locationCombo.TabIndex = 2;
             // 
             // sleepTechBox
             // 
-            sleepTechBox.Location = new Point(899, 79);
+            sleepTechBox.Location = new Point(895, 119);
             sleepTechBox.Name = "sleepTechBox";
             sleepTechBox.Size = new Size(200, 39);
             sleepTechBox.TabIndex = 5;
             // 
             // generateReportBtn
             // 
-            generateReportBtn.Location = new Point(474, 1127);
+            generateReportBtn.Location = new Point(470, 1167);
             generateReportBtn.Name = "generateReportBtn";
             generateReportBtn.Size = new Size(208, 51);
             generateReportBtn.TabIndex = 19;
@@ -236,7 +242,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(708, 140);
+            label11.Location = new Point(704, 180);
             label11.Name = "label11";
             label11.Size = new Size(117, 32);
             label11.TabIndex = 23;
@@ -244,7 +250,7 @@
             // 
             // ptIdBox
             // 
-            ptIdBox.Location = new Point(901, 140);
+            ptIdBox.Location = new Point(897, 180);
             ptIdBox.Name = "ptIdBox";
             ptIdBox.ReadOnly = true;
             ptIdBox.Size = new Size(200, 39);
@@ -253,7 +259,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(675, 423);
+            label12.Location = new Point(24, 46);
             label12.Name = "label12";
             label12.Size = new Size(157, 32);
             label12.TabIndex = 25;
@@ -263,7 +269,7 @@
             // 
             maskComboBox.FormattingEnabled = true;
             maskComboBox.Items.AddRange(new object[] { "OTHER", "RESMED F10 FF MASK", "RESMED F20 FF MASK", "RESMED F30 FF MASK", "RESMED F30i FF MASK", "RESMED F40 FF MASK", "RESMED N20 NASAL MASK", "RESMED N30 NASAL MASK ", "RESMED N30i NASAL MASK ", "RESMED P10 NASAL PILLOWS", "RESMED P30i NASAL PILLOWS", "F & P ESON NASAL MASK", "F & P ESON 2 NASAL MASK", "F & P EVORA NASAL MASK", "F& P EVORA FF MASK", "F & P SIMPLUS FF MASK", "F & P VITERA FF MASK", "RESPIRONICS DREAMWEAR NASAL MASK", "RESPIRONICS DREAMWEAR FF MASK", "RESPIRONICS WISP NASAL MASK", "RESPIRONICS PICO NASAL MASK" });
-            maskComboBox.Location = new Point(873, 420);
+            maskComboBox.Location = new Point(242, 38);
             maskComboBox.Name = "maskComboBox";
             maskComboBox.Size = new Size(513, 40);
             maskComboBox.TabIndex = 15;
@@ -271,7 +277,7 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(63, 357);
+            label13.Location = new Point(59, 397);
             label13.Name = "label13";
             label13.Size = new Size(86, 32);
             label13.TabIndex = 27;
@@ -280,7 +286,7 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(63, 412);
+            label14.Location = new Point(59, 452);
             label14.Name = "label14";
             label14.Size = new Size(90, 32);
             label14.TabIndex = 28;
@@ -288,14 +294,14 @@
             // 
             // heightBox
             // 
-            heightBox.Location = new Point(261, 357);
+            heightBox.Location = new Point(257, 397);
             heightBox.Name = "heightBox";
             heightBox.Size = new Size(200, 39);
             heightBox.TabIndex = 9;
             // 
             // weightBox
             // 
-            weightBox.Location = new Point(261, 412);
+            weightBox.Location = new Point(257, 452);
             weightBox.Name = "weightBox";
             weightBox.Size = new Size(200, 39);
             weightBox.TabIndex = 10;
@@ -303,7 +309,7 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(63, 137);
+            label15.Location = new Point(59, 177);
             label15.Name = "label15";
             label15.Size = new Size(83, 32);
             label15.TabIndex = 31;
@@ -313,7 +319,7 @@
             // 
             roomCombo.FormattingEnabled = true;
             roomCombo.Items.AddRange(new object[] { "RM1", "RM2", "RM3" });
-            roomCombo.Location = new Point(258, 137);
+            roomCombo.Location = new Point(254, 177);
             roomCombo.Name = "roomCombo";
             roomCombo.Size = new Size(242, 40);
             roomCombo.TabIndex = 3;
@@ -321,17 +327,17 @@
             // 
             // commentBox
             // 
-            commentBox.Location = new Point(63, 913);
+            commentBox.Location = new Point(59, 953);
             commentBox.Multiline = true;
             commentBox.Name = "commentBox";
+            commentBox.PlaceholderText = "\"{ptName} is in for a {ordered} study.";
             commentBox.Size = new Size(1058, 160);
             commentBox.TabIndex = 17;
-            commentBox.Text = "add comments";
             // 
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(62, 468);
+            label16.Location = new Point(58, 508);
             label16.Name = "label16";
             label16.Size = new Size(101, 32);
             label16.TabIndex = 34;
@@ -339,7 +345,7 @@
             // 
             // epworthBox
             // 
-            epworthBox.Location = new Point(261, 468);
+            epworthBox.Location = new Point(257, 508);
             epworthBox.Name = "epworthBox";
             epworthBox.Size = new Size(200, 39);
             epworthBox.TabIndex = 11;
@@ -348,7 +354,7 @@
             // 
             label17.AutoSize = true;
             label17.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label17.Location = new Point(467, 470);
+            label17.Location = new Point(463, 510);
             label17.Name = "label17";
             label17.Size = new Size(61, 37);
             label17.TabIndex = 36;
@@ -357,7 +363,7 @@
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new Point(677, 482);
+            label18.Location = new Point(24, 108);
             label18.Name = "label18";
             label18.Size = new Size(120, 32);
             label18.TabIndex = 37;
@@ -367,14 +373,14 @@
             // 
             maskSizeBox.FormattingEnabled = true;
             maskSizeBox.Items.AddRange(new object[] { "XS", "Small", "Small Wide", "Wide", "Medium", "Large", "XL" });
-            maskSizeBox.Location = new Point(873, 482);
+            maskSizeBox.Location = new Point(242, 100);
             maskSizeBox.Name = "maskSizeBox";
             maskSizeBox.Size = new Size(325, 40);
             maskSizeBox.TabIndex = 16;
             // 
             // splitBtn
             // 
-            splitBtn.Location = new Point(474, 1127);
+            splitBtn.Location = new Point(470, 1167);
             splitBtn.Name = "splitBtn";
             splitBtn.Size = new Size(208, 51);
             splitBtn.TabIndex = 39;
@@ -384,7 +390,7 @@
             // 
             // titrationBtn
             // 
-            titrationBtn.Location = new Point(474, 1127);
+            titrationBtn.Location = new Point(470, 1167);
             titrationBtn.Name = "titrationBtn";
             titrationBtn.Size = new Size(208, 51);
             titrationBtn.TabIndex = 18;
@@ -395,7 +401,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(491, 357);
+            label10.Location = new Point(487, 397);
             label10.Name = "label10";
             label10.Size = new Size(56, 32);
             label10.TabIndex = 40;
@@ -403,23 +409,69 @@
             // 
             // bmiBox
             // 
-            bmiBox.Location = new Point(553, 354);
+            bmiBox.Location = new Point(549, 394);
             bmiBox.Name = "bmiBox";
             bmiBox.ReadOnly = true;
             bmiBox.Size = new Size(106, 39);
             bmiBox.TabIndex = 41;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(24, 168);
+            label19.Name = "label19";
+            label19.Size = new Size(192, 32);
+            label19.TabIndex = 42;
+            label19.Text = "Starting Pressure";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(24, 234);
+            label20.Name = "label20";
+            label20.Size = new Size(160, 32);
+            label20.TabIndex = 43;
+            label20.Text = "Final Pressure";
+            // 
+            // startPresBox
+            // 
+            startPresBox.Location = new Point(242, 161);
+            startPresBox.Name = "startPresBox";
+            startPresBox.Size = new Size(200, 39);
+            startPresBox.TabIndex = 44;
+            // 
+            // finalPresBox
+            // 
+            finalPresBox.Location = new Point(242, 227);
+            finalPresBox.Name = "finalPresBox";
+            finalPresBox.Size = new Size(200, 39);
+            finalPresBox.TabIndex = 45;
+            // 
+            // papPanel
+            // 
+            papPanel.Controls.Add(maskComboBox);
+            papPanel.Controls.Add(finalPresBox);
+            papPanel.Controls.Add(label12);
+            papPanel.Controls.Add(startPresBox);
+            papPanel.Controls.Add(label18);
+            papPanel.Controls.Add(label20);
+            papPanel.Controls.Add(maskSizeBox);
+            papPanel.Controls.Add(label19);
+            papPanel.Location = new Point(54, 611);
+            papPanel.Name = "papPanel";
+            papPanel.Size = new Size(782, 292);
+            papPanel.TabIndex = 46;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1419, 1230);
+            Controls.Add(papPanel);
             Controls.Add(bmiBox);
             Controls.Add(label10);
             Controls.Add(titrationBtn);
             Controls.Add(splitBtn);
-            Controls.Add(maskSizeBox);
-            Controls.Add(label18);
             Controls.Add(label17);
             Controls.Add(epworthBox);
             Controls.Add(label16);
@@ -430,8 +482,6 @@
             Controls.Add(heightBox);
             Controls.Add(label14);
             Controls.Add(label13);
-            Controls.Add(maskComboBox);
-            Controls.Add(label12);
             Controls.Add(ptIdBox);
             Controls.Add(label11);
             Controls.Add(generateReportBtn);
@@ -455,6 +505,8 @@
             Controls.Add(label1);
             Name = "Form1";
             Text = "Generate Report ";
+            papPanel.ResumeLayout(false);
+            papPanel.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -500,5 +552,10 @@
         private Button titrationBtn;
         private Label label10;
         private TextBox bmiBox;
+        private Label label19;
+        private Label label20;
+        private TextBox startPresBox;
+        private TextBox finalPresBox;
+        private Panel papPanel;
     }
 }
