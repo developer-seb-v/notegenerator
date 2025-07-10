@@ -37,9 +37,9 @@ namespace notegenerator
             string ordered = studyOrdered.SelectedItem?.ToString() ?? "Not selected";
             string performed = studyPerformed?.SelectedItem?.ToString() ?? "Not selected";
             string acq = AcqNumBox.Text;
-            string referring = refMDtxtBox.Text;
+            string referring = orderingMDComboBox.Text;
             string tech = techComboBox.Text;
-            // frequency plus symptom for narrative
+            // frequency plus symptom for narrativew
             // checkbox for sleep issues from pt form
             string cpapMask = string.Empty;
             string startPressure = string.Empty;
@@ -210,6 +210,60 @@ namespace notegenerator
         {
             AddMd addMd = new AddMd();
             addMd.ShowDialog();
+        }
+
+        private void LoadOrderingMds()
+        {
+            string connectionString = "Data Source=appdata.db"; // adjust path as needed
+            using (var connection = new SqliteConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    var command = connection.CreateCommand();
+                    command.CommandText = "SELECT name FROM ordering_mds";
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string name = reader.GetString(0);
+                            orderingMDComboBox.Items.Add(name);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading data: " + ex.Message);
+                }
+            }
+        }
+
+        private void heightBox_TextChanged(object sender, EventArgs e)
+        {
+            if (weightBox.Text.Length == 0 || heightBox.Text.Length == 0)
+            {
+                bmiBox.Text = "0.00"; // Reset BMI if either field is empty
+                return;
+            }
+            float height = heightBox.Text.Length > 0 ? float.Parse(heightBox.Text) : 0;
+            float weight = weightBox.Text.Length > 0 ? float.Parse(weightBox.Text) : 0;
+            float bmi = (weight / (height * height)) * 703; // BMI formula
+            bmiBox.Text = bmi.ToString("F2"); // Display BMI with 2 decimal places
+        }
+
+        private void weightBox_TextChanged(object sender, EventArgs e)
+        {
+            if (weightBox.Text.Length == 0 || heightBox.Text.Length == 0)
+            {
+                bmiBox.Text = "0.00"; // Reset BMI if either field is empty
+                return;
+            }
+
+            float height = heightBox.Text.Length > 0 ? float.Parse(heightBox.Text) : 0;
+            float weight = weightBox.Text.Length > 0 ? float.Parse(weightBox.Text) : 0;
+            float bmi = (weight / (height * height)) * 703; // BMI formula
+            bmiBox.Text = bmi.ToString("F2"); // Display BMI with 2 decimal places
+
         }
     }
 }

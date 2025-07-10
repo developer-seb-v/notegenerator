@@ -39,7 +39,6 @@
             label5 = new Label();
             studyPerformed = new ComboBox();
             label6 = new Label();
-            refMDtxtBox = new TextBox();
             label7 = new Label();
             AcqNumBox = new TextBox();
             label8 = new Label();
@@ -77,6 +76,7 @@
             addTechToolStripMenuItem = new ToolStripMenuItem();
             addMDToolStripMenuItem = new ToolStripMenuItem();
             techComboBox = new ComboBox();
+            orderingMDComboBox = new ComboBox();
             papPanel.SuspendLayout();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -176,13 +176,6 @@
             label6.Size = new Size(155, 32);
             label6.TabIndex = 10;
             label6.Text = "Ordering MD";
-            // 
-            // refMDtxtBox
-            // 
-            refMDtxtBox.Location = new Point(852, 324);
-            refMDtxtBox.Name = "refMDtxtBox";
-            refMDtxtBox.Size = new Size(325, 39);
-            refMDtxtBox.TabIndex = 12;
             // 
             // label7
             // 
@@ -296,6 +289,7 @@
             heightBox.Name = "heightBox";
             heightBox.Size = new Size(200, 39);
             heightBox.TabIndex = 9;
+            heightBox.TextChanged += heightBox_TextChanged;
             // 
             // weightBox
             // 
@@ -303,6 +297,7 @@
             weightBox.Name = "weightBox";
             weightBox.Size = new Size(200, 39);
             weightBox.TabIndex = 10;
+            weightBox.TextChanged += weightBox_TextChanged;
             // 
             // label15
             // 
@@ -466,34 +461,34 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, databaseToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1285, 42);
+            menuStrip1.Size = new Size(1285, 40);
             menuStrip1.TabIndex = 47;
             menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(71, 38);
+            fileToolStripMenuItem.Size = new Size(71, 36);
             fileToolStripMenuItem.Text = "File";
             // 
             // databaseToolStripMenuItem
             // 
             databaseToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addTechToolStripMenuItem, addMDToolStripMenuItem });
             databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
-            databaseToolStripMenuItem.Size = new Size(132, 38);
+            databaseToolStripMenuItem.Size = new Size(132, 36);
             databaseToolStripMenuItem.Text = "Database";
             // 
             // addTechToolStripMenuItem
             // 
             addTechToolStripMenuItem.Name = "addTechToolStripMenuItem";
-            addTechToolStripMenuItem.Size = new Size(359, 44);
+            addTechToolStripMenuItem.Size = new Size(246, 44);
             addTechToolStripMenuItem.Text = "Add Tech";
             addTechToolStripMenuItem.Click += addTechToolStripMenuItem_Click;
             // 
             // addMDToolStripMenuItem
             // 
             addMDToolStripMenuItem.Name = "addMDToolStripMenuItem";
-            addMDToolStripMenuItem.Size = new Size(359, 44);
+            addMDToolStripMenuItem.Size = new Size(246, 44);
             addMDToolStripMenuItem.Text = "Add MD";
             addMDToolStripMenuItem.Click += addMDToolStripMenuItem_Click;
             // 
@@ -505,11 +500,20 @@
             techComboBox.Size = new Size(365, 40);
             techComboBox.TabIndex = 48;
             // 
+            // orderingMDComboBox
+            // 
+            orderingMDComboBox.FormattingEnabled = true;
+            orderingMDComboBox.Location = new Point(853, 325);
+            orderingMDComboBox.Name = "orderingMDComboBox";
+            orderingMDComboBox.Size = new Size(242, 40);
+            orderingMDComboBox.TabIndex = 49;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1285, 1230);
+            Controls.Add(orderingMDComboBox);
             Controls.Add(techComboBox);
             Controls.Add(papPanel);
             Controls.Add(bmiBox);
@@ -534,7 +538,6 @@
             Controls.Add(label8);
             Controls.Add(AcqNumBox);
             Controls.Add(label7);
-            Controls.Add(refMDtxtBox);
             Controls.Add(label6);
             Controls.Add(studyPerformed);
             Controls.Add(label5);
@@ -571,7 +574,6 @@
         private Label label5;
         private ComboBox studyPerformed;
         private Label label6;
-        private TextBox refMDtxtBox;
         private Label label7;
         private TextBox AcqNumBox;
         private Label label8;
@@ -609,5 +611,6 @@
         private ToolStripMenuItem addTechToolStripMenuItem;
         private ToolStripMenuItem addMDToolStripMenuItem;
         private ComboBox techComboBox;
+        private ComboBox orderingMDComboBox;
     }
 }
